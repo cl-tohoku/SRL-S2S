@@ -265,6 +265,7 @@ def read_conll(filename, conll_token):
     n_sents = 0
     annotated_sentences, buffer_lst = [], []
     for i, line in enumerate(f.readlines()):
+        line = line.rstrip()
         if len(line) > 5:
             buffer_lst.append(line)
         else:

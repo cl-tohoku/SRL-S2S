@@ -1,0 +1,11 @@
+saved_models/
+
+datasets/*
+!json/conll05/dev.json
+!fix_json/conll05/dev.json
+!conll05/conll05.dev.txt
+!conll05/conll05.dev.prop
+
+log/
+!set_log.py
+!__init__.py
