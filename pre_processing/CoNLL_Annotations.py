@@ -187,7 +187,7 @@ class AnnotatedSentence():
                     curr_lbl = lbl.strip("(*")
                     BIO.append("B-"+curr_lbl)
                     init_span = wix
-                elif self.cl_lbl_05.match(lbl): #Closing labels
+                elif self.cl_lbl_05.search(lbl): #Closing labels
                     span.append(word)
                     end_span = wix
                     all_spans.append(ArgumentSpan(init_span, end_span, curr_lbl, span, pred_ix, pred_sense))
@@ -265,6 +265,7 @@ def read_conll(filename, conll_token):
     n_sents = 0
     annotated_sentences, buffer_lst = [], []
     for i, line in enumerate(f.readlines()):
+        line = line.rstrip()
         if len(line) > 5:
             buffer_lst.append(line)
         else:
